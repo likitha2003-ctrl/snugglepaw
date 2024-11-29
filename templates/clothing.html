@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Clothing Store</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4E1D2; /* Pastel peach background */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #6A1B9A;
+            margin-top: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #D1C4E9; /* Light pastel purple */
+            padding: 15px;
+        }
+        nav a {
+            color: #6A1B9A;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #8E24AA;
+        }
+
+        /* Product Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.4em;
+            color: #6A1B9A;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: #8E24AA;
+            margin-bottom: 15px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #8E24AA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #6A1B9A;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #D1C4E9; /* Light pastel purple */
+            padding: 20px;
+            color: #6A1B9A;
+            text-align: center;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SnugglePaw - Dog Clothing Store</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="cart">Cart</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Main Store Product Cards -->
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="/static/dogjacket1.jpg" alt="Dog Clothing" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Dog Jacket</h3>
+                <p class="product-price">₹2,499</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Dog Jacket', 2499)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="/static/wintersweater.jpg" alt="Dog Clothing" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Winter Sweater</h3>
+                <p class="product-price">₹3,299</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Winter Sweater', 3299)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="/static/tshirt.jpg" alt="Dog Clothing" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title"> T-Shirt</h3>
+                <p class="product-price">₹1,799</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Paw-Print T-Shirt', 1799)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="/static/raincoat.jpg" alt="Dog Clothing" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Raincoat</h3>
+                <p class="product-price">₹1,999</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Raincoat', 1999)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SnugglePaw. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to add product to cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + ' has been added to your cart!');
+        }
+    </script>
+
+</body>
+</html>

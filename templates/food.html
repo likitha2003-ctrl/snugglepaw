@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Food Store</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F9E1D2; /* Pastel peach background */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #FF5722;
+            margin-top: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #FFEBEE; /* Light pastel pink */
+            padding: 15px;
+        }
+        nav a {
+            color: #FF5722;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #D32F2F;
+        }
+
+        /* Product Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.4em;
+            color: #FF5722;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: #E64A19;
+            margin-bottom: 15px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #E64A19;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #D32F2F;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #FFEBEE; /* Light pastel pink */
+            padding: 20px;
+            color: #FF5722;
+            text-align: center;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SnugglePaw - Dog Food Store</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Main Store Product Cards -->
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="/static/royalcanin.jpg" alt="Dog Food" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Royal Canin</h3>
+                <p class="product-price">₹1,499</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Organic Dog Food', 1499)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="/static/drools.jpg" alt="Dog Food" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Drools</h3>
+                <p class="product-price">₹1,799</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Chicken & Rice Dog Food', 1799)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="/static/pedi.jpg" alt="Dog Food" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Pedigree</h3>
+                <p class="product-price">₹1,999</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Beef Dog Food', 1999)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="/static/purepet.jpg" alt="Dog Food" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Purepet</h3>
+                <p class="product-price">₹1,399</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Puppy Formula Food', 1399)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SnugglePaw. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to add product to cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + ' has been added to your cart!');
+        }
+    </script>
+
+</body>
+</html>

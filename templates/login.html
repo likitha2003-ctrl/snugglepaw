@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* General Reset */
+    body, h1, form {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Full-page background */
+    body {
+      background-color: #f8e6d6; /* Light beige/brown color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #6f4f1f; /* Dark brown color */
+    }
+
+    /* Login container */
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h1 {
+      text-align: center;
+      color: #6f4f1f;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    /* Input fields */
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #e1cbb0; /* Soft beige border */
+      border-radius: 5px;
+      font-size: 14px;
+      color: #6f4f1f;
+    }
+
+    .input-field:focus {
+      border-color: #a56c38; /* Brown color on focus */
+      outline: none;
+    }
+
+    /* Submit button */
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #a56c38; /* Muted brown color */
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background-color: #8c4e2f; /* Darker brown on hover */
+    }
+
+    /* Links */
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #6f4f1f;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Login</h1>
+    <form action="" method="POST">
+      <!-- Email Field -->
+      <input type="email" class="input-field" placeholder="Email" name="email" required>
+
+      <!-- Password Field -->
+      <input type="password" class="input-field" placeholder="Password" name="password" required>
+
+      <!-- Submit Button -->
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="links">
+      <p>Don't have an account? <a href="registration">Sign Up</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

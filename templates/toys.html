@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Toys Store</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E0F7FA; /* Pastel light blue background */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #0277BD;
+            margin-top: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #80DEEA; /* Light pastel blue */
+            padding: 15px;
+        }
+        nav a {
+            color: #0277BD;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #01579B;
+        }
+
+        /* Product Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.4em;
+            color: #0277BD;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: #0288D1;
+            margin-bottom: 15px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #0288D1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #01579B;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #80DEEA; /* Light pastel blue */
+            padding: 20px;
+            color: #0277BD;
+            text-align: center;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SnugglePaw - Dog Toys Store</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Main Store Product Cards -->
+    <div class="container">
+        <!-- Product 1: Dog Ball Toy -->
+        <div class="product-card">
+            <img src="/static/rubberball.jpg" alt="Dog Ball Toy" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Rubber Dog Ball</h3>
+                <p class="product-price">₹399</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Rubber Dog Ball', 399)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2: Interactive Dog Toy -->
+        <div class="product-card">
+            <img src="/static/dogrope.jpg" alt="Interactive Dog Toy" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Durable Dog Rope Toy</h3>
+                <p class="product-price">₹899</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Interactive Dog Toy', 899)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3: Dog Rope Toy -->
+        <div class="product-card">
+            <img src="/static/tugtoys.jpg" alt="Dog Rope Toy" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Tug Toys</h3>
+                <p class="product-price">₹499</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Durable Dog Rope Toy', 499)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4: Squeaky Toy -->
+        <div class="product-card">
+            <img src="/static/disc.jpg" alt="Squeaky Toy" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Disc Dog Toy</h3>
+                <p class="product-price">₹699</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Squeaky Dog Toy', 699)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SnugglePaw. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to add product to cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + ' has been added to your cart!');
+        }
+    </script>
+
+</body>
+</html>

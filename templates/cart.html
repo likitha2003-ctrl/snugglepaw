@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        /* Basic styling for cart page */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #8e24aa;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .cart-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .cart-item {
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item h3 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .cart-item p {
+            font-size: 1.2em;
+            color: #8e24aa;
+        }
+        .btn-clear-cart {
+            background-color: #8e24aa;
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-clear-cart:hover {
+            background-color: #6a1b9a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Cart Items Display -->
+    <div class="cart-container" id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+
+    <!-- Clear Cart Button -->
+    <div class="cart-container">
+        <button class="btn-clear-cart" onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <script>
+        // Load cart items from localStorage
+        window.onload = function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cart.forEach(item => {
+                    let itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <h3>${item.name}</h3>
+                        <p>₹${item.price}</p>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+            }
+        };
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            alert('Your cart has been cleared!');
+            window.location.reload();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Products Store</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F9E1D2; /* Pastel peach background */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #FF5722;
+            margin-top: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #FFEBEE; /* Light pastel pink */
+            padding: 15px;
+        }
+        nav a {
+            color: #FF5722;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #D32F2F;
+        }
+
+        /* Product Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.4em;
+            color: #FF5722;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: #E64A19;
+            margin-bottom: 15px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #E64A19;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #D32F2F;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #FFEBEE; /* Light pastel pink */
+            padding: 20px;
+            color: #FF5722;
+            text-align: center;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SnugglePaw - Dog Products Store</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <!-- Main Store Product Cards -->
+    <div class="container">
+        <!-- Product 1: Dog Toy -->
+        <div class="product-card">
+            <img src="/static/Himalaya.jpg" alt="Dog Toy" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Shampoo for dogs</h3>
+                <p class="product-price">₹499</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Chew Toy for Dogs', 499)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2: Dog Collar -->
+        <div class="product-card">
+            <img src="/static/dogcollar.jpg" alt="Dog Collar" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Leather Dog Collar</h3>
+                <p class="product-price">₹799</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Leather Dog Collar', 799)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3: Dog Leash -->
+        <div class="product-card">
+            <img src="/static/dogleash.jpg" alt="Dog Leash" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Retractable Dog Leash</h3>
+                <p class="product-price">₹1,199</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Retractable Dog Leash', 1199)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4: Dog Bed -->
+        <div class="product-card">
+            <img src="/static/dogbed.jpg" alt="Dog Bed" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Comfortable Dog Bed</h3>
+                <p class="product-price">₹2,499</p>
+                <button class="btn-add-to-cart" onclick="addToCart('Comfortable Dog Bed', 2499)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SnugglePaw. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to add product to cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + ' has been added to your cart!');
+        }
+    </script>
+
+</body>
+</html>
